@@ -1,4 +1,4 @@
-# Spring Boot 2 and OAuth2 integration: complete guide
+# Spring Boot 2 and OAuth2.0 integration
 Spring boot 2.1.8 Oauth2.0 with Oracle database. I have read so many different tutorial where i have found only inmemory database tutorial but after a big try i found this man [Click Here](https://github.com/patternmatch/oauth2-blog) made a great tutorial using PGSQL and i converted it to Oracle. hope this will help you to make better oAuth2.0 security for your project.
 
 The full content you can find in that blog post [Click Here](https://pattern-match.com/blog/2018/10/17/springboot2-with-oauth2-integration/).
