@@ -7,13 +7,6 @@ In this project we present how to improve your SpringBoot app's security by usin
 The full content you can find in that blog post [HERE](https://pattern-match.com/blog/2018/10/17/springboot2-with-oauth2-integration/).
 he is a nice guy who has explained better than me.
 
-## Building the project
-You can use gradle wrapper which is configured in the project.
-
-```
-./gradlew clean build
-```
-
 ## Running the application
 You can use your IDE or command-line.
 Here i have used Intellij IDE
