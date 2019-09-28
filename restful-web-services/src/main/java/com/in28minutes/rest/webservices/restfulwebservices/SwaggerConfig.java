@@ -19,7 +19,7 @@ import java.util.Set;
 public class SwaggerConfig {
 
 public static final Contact DEFAULT_CONTACT =
-        new Contact("CityBank", "http://www.google.com", "sma@cb.com");
+        new Contact("company name", "http://www.google.com", "sma@cb.com");
 public static final ApiInfo DEFAULT_API_INFO =
         new ApiInfo(
                 "Awesome API Title",

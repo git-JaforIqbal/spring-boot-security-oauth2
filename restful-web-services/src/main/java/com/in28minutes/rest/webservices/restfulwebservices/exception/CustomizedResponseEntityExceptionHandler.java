@@ -21,55 +21,30 @@ import java.util.stream.Collectors;
 @RestController
 public class CustomizedResponseEntityExceptionHandler
         extends ResponseEntityExceptionHandler {
-//
-//        @ExceptionHandler(Exception.class)
-//        public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) throws Exception {
-//        ExceptionResponse exceptionResponse =
-//                new ExceptionResponse(new Date(), ex.getMessage(),
-//                   request.getDescription(false),"CBLCommon");
-//                return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//
-//        @ExceptionHandler(UserNotFoundException.class)
-//        public final ResponseEntity<Object> handleUserNotFoundException(
-//                UserNotFoundException ex, WebRequest request) throws Exception {
-//            ExceptionResponse exceptionResponse =
-//                    new ExceptionResponse(new Date(), ex.getMessage(),
-//                            request.getDescription(false),"CBL");
-//            return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
-//        }
-//    @Override
-//    protected ResponseEntity<Object> handleMethodArgumentNotValid(
-//            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-//        ExceptionResponse exceptionResponse =
-//                new ExceptionResponse(new Date(),"Validation Failed" ,//ex.getMessage(),
-//                        ex.getBindingResult().toString(),"CBL");
-//        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
-//    }
 
-//    @Override
-//    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-//                                                                  HttpHeaders headers,
-//                                                                  HttpStatus status, WebRequest request) {
-//
-//        Map<String, Object> body = new LinkedHashMap<>();
-//        body.put("timestamp", new Date());
-//        body.put("message", status.value());
-//
-//        //Get all errors
-//        List<String> errors = ex.getBindingResult()
-//                .getFieldErrors()
-//                .stream()
-//                .map(x -> x.getDefaultMessage())
-//                .collect(Collectors.toList());
-//
-//        body.put("details", errors);
-//        body.put("business", "CBL");
-//
-//        return new ResponseEntity<>(body, headers, status);
-//
-//        //Map<String, String> fieldErrors = ex.getBindingResult().getFieldErrors().stream().collect(
-//        //        Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
-//
-//    }
+        @ExceptionHandler(Exception.class)
+        public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) throws Exception {
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(new Date(), ex.getMessage(),
+                   request.getDescription(false),"DBLCommon");
+                return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        @ExceptionHandler(UserNotFoundException.class)
+        public final ResponseEntity<Object> handleUserNotFoundException(
+                UserNotFoundException ex, WebRequest request) throws Exception {
+            ExceptionResponse exceptionResponse =
+                    new ExceptionResponse(new Date(), ex.getMessage(),
+                            request.getDescription(false),"DBL");
+            return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
+        }
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(new Date(),"Validation Failed" ,//ex.getMessage(),
+                        ex.getBindingResult().toString(),"DBL");
+        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
