@@ -30,7 +30,7 @@ public static final ApiInfo DEFAULT_API_INFO =
                 "http://www.apache.org/licenses/LICENSE-2.0");
 
     private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES =
-            new HashSet<String>(Arrays.asList("application/json","application/xml"));
+            new HashSet<String>(Arrays.asList("application/json"));
 
     @Bean
     public Docket api(){
