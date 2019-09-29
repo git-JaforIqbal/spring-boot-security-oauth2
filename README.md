@@ -50,8 +50,8 @@ You should receive an authentication token in a response. The example below.
 Now, use the access_token to access the REST API.
 
 ```
-http http://localhost:8888/api/hello name=='Seb' access_token=='aef2f598-fb6e-4d6c-a72f-ed0e772fd01d'
-curl -H "Authorization: Bearer 2a4da32e-ab82-4e56-883e-e44b154795ba" http://localhost:8080/api/hello?name=Seb
+http http://localhost:8888/api/hello name=='jafor' access_token=='aef2f598-fb6e-4d6c-a72f-ed0e772fd01d'
+curl -H "Authorization: Bearer 2a4da32e-ab82-4e56-883e-e44b154795ba" http://localhost:8080/api/hello?name=jafor
 ```
 You should see `HTTP/1.1 200` in a response.
 
