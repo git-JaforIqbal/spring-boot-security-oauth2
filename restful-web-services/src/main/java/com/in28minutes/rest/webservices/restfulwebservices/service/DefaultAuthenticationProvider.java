@@ -1,7 +1,10 @@
 package com.in28minutes.rest.webservices.restfulwebservices.service;
 
+import com.in28minutes.rest.webservices.restfulwebservices.controllers.EmployeeController;
 import com.in28minutes.rest.webservices.restfulwebservices.entity.AppUser;
 import com.in28minutes.rest.webservices.restfulwebservices.repository.AppUserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -12,9 +15,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.Collections;
 import java.util.Optional;
 
+
 public class DefaultAuthenticationProvider implements AuthenticationProvider {
 
     private final AppUserRepository appUserRepository;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DefaultAuthenticationProvider.class);
 
     public DefaultAuthenticationProvider(AppUserRepository appUserRepository) {
         this.appUserRepository = appUserRepository;
@@ -38,8 +44,8 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
             final String providedUserEmail = authentication.getName();
             final Object providedUserPassword = authentication.getCredentials();
 
-            if (providedUserEmail.equalsIgnoreCase(user.getUserEmail())
-                    && providedUserPassword.equals(user.getUserPass())) {
+            if (providedUserEmail.equalsIgnoreCase(user.getUserEmail()) && providedUserPassword.equals(user.getUserPass())) {
+                LOGGER.info(user.getUserPass());
                 return new UsernamePasswordAuthenticationToken(
                         user.getUserEmail(),
                         user.getUserPass(),

@@ -4,6 +4,8 @@ package com.in28minutes.rest.webservices.restfulwebservices.controllers;
 import com.in28minutes.rest.webservices.restfulwebservices.combeans.Employee;
 import com.in28minutes.rest.webservices.restfulwebservices.service.EmployeeDAO;
 import com.in28minutes.rest.webservices.restfulwebservices.user.UserNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeDAO employeeDAO;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
     @GetMapping("/practice")
     public int[] practice() {
